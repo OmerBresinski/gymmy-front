@@ -8,7 +8,7 @@ import {
 import { motion } from "framer-motion";
 
 function App() {
-  const { user, isLoaded } = useUser();
+  const { user } = useUser();
 
   return (
     <>
