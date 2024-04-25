@@ -6,6 +6,7 @@ import {
   useUser,
 } from "@clerk/clerk-react";
 import { motion } from "framer-motion";
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
   const { user } = useUser();
@@ -44,16 +45,7 @@ function App() {
           )}
         </SignedIn>
       </header>
-      <div className="w-full h-full flex justify-center mt-10">
-        <motion.h1
-          animate={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 35 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeInOut" }}
-          className="text-4xl font-extrabold tracking-tighter italic text-primary text-pink-500"
-        >
-          Gymmy
-        </motion.h1>
-      </div>
+      <Outlet />
     </>
   );
 }
