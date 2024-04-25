@@ -3,11 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 import * as Pages from "./pages";
-import {
-  useNavigate,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -17,10 +13,8 @@ if (!PUBLISHABLE_KEY) {
 }
 
 const RootLayout = () => {
-  const navigate = useNavigate();
-
   return (
-    <ClerkProvider navigate={navigate} publishableKey={PUBLISHABLE_KEY}>
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <App />
     </ClerkProvider>
   );
