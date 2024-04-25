@@ -1,9 +1,17 @@
+import { motion } from "framer-motion";
+
 export const ContentGrid = () => {
   return (
-    <div className="flex flex-wrap gap-3 justify-start overflow-y-scroll pb-3 max-h-[calc(100vh-276px)]">
+    <motion.div
+      className="flex flex-wrap gap-3 justify-start overflow-y-scroll pb-3 max-h-[calc(100vh-276px)]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+    >
       {CONTENT.map((content, index) => (
         <div key={index}>
           <video
+            preload="metadata"
             onClick={(e) => {
               e.currentTarget.paused
                 ? e.currentTarget.play()
@@ -14,7 +22,7 @@ export const ContentGrid = () => {
           ></video>
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
