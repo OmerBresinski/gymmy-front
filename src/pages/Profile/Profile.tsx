@@ -1,32 +1,20 @@
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Tabs } from "./Tabs";
 import { TopSection } from "./TopSection";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 
 export const Profile = () => {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+
+  const handleTabClick = (tabIndex: number) => {
+    setActiveTabIndex(tabIndex);
+  };
+
   return (
     <>
       <SignedIn>
-        <div className="flex flex-col gap-1">
-          <TopSection />
-          <div className="flex p-2 gap-2">
-            <Button
-              onClick={console.log}
-              className="w-full"
-              size="sm"
-              variant="secondary"
-            >
-              <p className="text-sm font-semibold">Edit Profile</p>
-            </Button>
-            <Button
-              onClick={console.log}
-              className="w-full"
-              size="sm"
-              variant="secondary"
-            >
-              <p className="text-sm font-semibold">Share Profile</p>
-            </Button>
-          </div>
-        </div>
+        <TopSection />
+        <Tabs activeTabIndex={activeTabIndex} onTabClick={handleTabClick} />
       </SignedIn>
       <SignedOut>
         <div>Please sign in</div>
