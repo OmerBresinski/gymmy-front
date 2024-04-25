@@ -1,4 +1,5 @@
 import { GridIcon, ClipboardIcon } from "@radix-ui/react-icons";
+import { ContentGrid } from "./ContentGrid";
 
 interface TabsProps {
   onTabClick: (tabIndex: number) => void;
@@ -25,7 +26,7 @@ export const Tabs = ({ onTabClick, activeTabIndex }: TabsProps) => {
           <ClipboardIcon />
         </div>
       </div>
-      {activeTabIndex === 0 && <div>No content yet - Grid</div>}
+      {activeTabIndex === 0 && <ContentGrid />}
       {activeTabIndex === 1 && (
         <div>
           <div>No content yet - Workouts</div>
