@@ -17,7 +17,7 @@ export const ContentGrid = () => {
                 ? e.currentTarget.play()
                 : e.currentTarget.pause();
             }}
-            src={content}
+            src={`${content}#t=0.001`}
             className="w-32 rounded-md"
           ></video>
         </div>
